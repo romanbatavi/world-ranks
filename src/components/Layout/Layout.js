@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import styles from './Layout.module.css'
-const Layout = () => {
-  return (
+const Layout = ({children}) => {
+return (
     <div className={styles.container}>
       <Head>
         <title>Create Next App</title>
@@ -9,9 +9,7 @@ const Layout = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        main
-      </main>
+      <main className={styles.main}>{children}</main>
 
       <footer className={styles.footer}>
         footer
