@@ -1,4 +1,4 @@
-import { KeyboardArrowDownRounded } from '@material-ui/icons';
+import { KeyboardArrowDownRounded, KeyboardArrowUpRounded } from '@material-ui/icons';
 import styles from './CountriesTable.module.css'
 
 const orderBy = (countries, direction) => {
@@ -12,23 +12,44 @@ const orderBy = (countries, direction) => {
   return countries;
 };
 
+const SortArrow = ({direction}) => {
+  if (!direction) {
+    return <></>;
+  };
+
+  if (direction === 'desc') {
+    return (
+    <div className={styles.heading_arrow}>
+        <KeyboardArrowUpRounded color='inherit' />
+    </div>
+    );
+  } else {
+    return (
+    <div className={styles.heading_arrow}>
+        <KeyboardArrowUpRounded color='inherit' />
+    </div>
+    )
+  }
+};
+
 const CountriesTable = ({ countries }) => {
+
+  const[direction, setDirection] = 
+
   const orderedCountries = orderBy(countries, 'desc');
   return ( 
   <div>
     <div className={styles.heading}>
       <button className={styles.heading_name}>
         <div>Name</div>
-        <div className={styles.heading_arrow}>
-        <KeyboardArrowDownRounded color='inherit' />
-        </div>
+        
+        <SortArrow />
       </button>
       
       <button className={styles.heading_population}>
         <div>Population</div>
-        <div className={styles.heading_arrow}>
-        <KeyboardArrowDownRounded color='inherit' />
-        </div>
+        
+        <SortArrow direction='desc'/>
       </button>
     </div>
 
