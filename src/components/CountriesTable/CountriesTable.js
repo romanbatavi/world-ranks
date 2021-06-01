@@ -4,7 +4,7 @@ const CountriesTable = ({ countries }) => {
   return ( 
   <div>
     <div className={styles.heading}>
-      <button className={styles.heading_name}>
+      <button>
         <div>Name</div>
       </button>
       
